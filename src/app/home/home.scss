@@ -1,0 +1,157 @@
+:host {
+	display: block;
+}
+
+.home-shell {
+	width: min(1120px, calc(100% - clamp(2rem, 8vw, 8rem)));
+	margin: 0 auto;
+	padding: clamp(2.5rem, 5vw, 4.5rem) 0 clamp(3rem, 6vw, 5rem);
+}
+
+.hero-grid {
+	display: grid;
+	grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.9fr);
+	gap: clamp(1.5rem, 3vw, 2.5rem);
+	align-items: stretch;
+}
+
+.hero-copy {
+	padding: clamp(1rem, 2vw, 1.5rem) 0;
+}
+
+.eyebrow,
+.card-label,
+.insight-kicker {
+	margin: 0 0 0.75rem;
+	font-size: 0.82rem;
+	font-weight: 700;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+}
+
+.eyebrow,
+.insight-kicker {
+	color: var(--mat-sys-primary);
+}
+
+h1,
+h2 {
+	margin: 0;
+	color: var(--mat-sys-on-surface);
+}
+
+h1 {
+	max-width: 11ch;
+	font-size: clamp(2.4rem, 6vw, 4.8rem);
+	line-height: 0.96;
+}
+
+h2 {
+	font-size: 1.35rem;
+	line-height: 1.15;
+}
+
+.hero-text,
+.feature-copy,
+.insight-card p:last-child {
+	color: color-mix(in srgb, var(--mat-sys-on-surface) 78%, white);
+}
+
+.hero-text {
+	max-width: 58ch;
+	margin: 1.25rem 0 0;
+	font-size: 1.06rem;
+	line-height: 1.7;
+}
+
+.hero-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.9rem;
+	margin-top: 1.75rem;
+}
+
+.hero-card,
+.insight-card {
+	border-radius: 24px;
+	box-shadow: none;
+}
+
+.hero-card {
+	border-color: color-mix(in srgb, var(--mat-sys-primary) 20%, transparent);
+	background:
+		linear-gradient(180deg, color-mix(in srgb, var(--mat-sys-primary) 8%, white) 0%, var(--mat-sys-surface-container-lowest) 100%);
+}
+
+.hero-card mat-card-content,
+.insight-card mat-card-content {
+	padding: clamp(1.5rem, 2vw, 2rem);
+}
+
+.card-label {
+	color: color-mix(in srgb, var(--mat-sys-on-surface) 64%, white);
+}
+
+.feature-list {
+	display: grid;
+	gap: 1rem;
+}
+
+.feature-item {
+	display: grid;
+	gap: 0.35rem;
+	padding: 1rem 1.1rem;
+	border-radius: 18px;
+	background: color-mix(in srgb, var(--mat-sys-surface) 86%, white);
+}
+
+.feature-title {
+	font-weight: 700;
+	color: var(--mat-sys-on-surface);
+}
+
+.feature-copy {
+	line-height: 1.55;
+}
+
+.insight-grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 1.25rem;
+	margin-top: 1.5rem;
+}
+
+.insight-card {
+	background: var(--mat-sys-surface-container-low);
+}
+
+.accent-card {
+	background: linear-gradient(180deg, color-mix(in srgb, var(--mat-sys-primary) 10%, white) 0%, var(--mat-sys-surface-container) 100%);
+}
+
+.insight-card p:last-child {
+	margin: 0.9rem 0 0;
+	line-height: 1.65;
+}
+
+@media (max-width: 900px) {
+	.hero-grid,
+	.insight-grid {
+		grid-template-columns: 1fr;
+	}
+
+	h1 {
+		max-width: 14ch;
+	}
+}
+
+@media (max-width: 600px) {
+	.home-shell {
+		width: min(100%, calc(100% - 1.5rem));
+		padding-top: 2rem;
+	}
+
+	.hero-actions a {
+		width: 100%;
+	}
+}

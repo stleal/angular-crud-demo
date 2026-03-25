@@ -6,3 +6,18 @@
 .spacer {
   flex: 1 1 auto;
 }
+@import '@angular/material/prebuilt-themes/rose-red.css';
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Aptos, 'Segoe UI', 'Helvetica Neue', sans-serif;
+  background:
+    radial-gradient(circle at top left, color-mix(in srgb, var(--mat-sys-primary) 14%, white) 0%, transparent 32%),
+    linear-gradient(180deg, var(--mat-sys-surface-container-lowest) 0%, var(--mat-sys-surface) 100%);
+  color: var(--mat-sys-on-surface);
+}

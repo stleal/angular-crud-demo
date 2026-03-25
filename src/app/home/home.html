@@ -1,4 +1,63 @@
-<div class="hero">
-  <h1>Welcome to RealEstate Demo</h1>
-  <p>Browse premium properties with ease.</p>
-</div>
+<section class="home-shell" aria-labelledby="home-title">
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow">Real estate, presented clearly</p>
+      <h1 id="home-title">Find standout homes without the clutter.</h1>
+      <p class="hero-text">
+        Browse curated listings, compare property highlights, and move from overview to detail in a cleaner,
+        more readable layout built for desktop and mobile.
+      </p>
+
+      <div class="hero-actions">
+        <a mat-flat-button routerLink="/properties">Browse Properties</a>
+        <a mat-stroked-button routerLink="/properties">View Latest Listings</a>
+      </div>
+    </div>
+
+    <mat-card appearance="outlined" class="hero-card">
+      <mat-card-content>
+        <p class="card-label">Why this demo feels better</p>
+        <div class="feature-list">
+          <div class="feature-item">
+            <span class="feature-title">Centered layout</span>
+            <span class="feature-copy">A bounded content width keeps reading comfortable on large screens.</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-title">Responsive spacing</span>
+            <span class="feature-copy">Left and right padding scale automatically with viewport width.</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-title">Material styling</span>
+            <span class="feature-copy">Buttons and cards inherit the installed red theme pack.</span>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="insight-grid">
+    <mat-card class="insight-card">
+      <mat-card-content>
+        <p class="insight-kicker">Fast scanning</p>
+        <h2>Designed for quick decisions</h2>
+        <p>Balanced spacing and grouped content make the landing page easier to read at a glance.</p>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="insight-card accent-card">
+      <mat-card-content>
+        <p class="insight-kicker">Theme aligned</p>
+        <h2>Built on Material tokens</h2>
+        <p>The red-and-white Material theme drives surfaces, emphasis, and contrast across the page.</p>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="insight-card">
+      <mat-card-content>
+        <p class="insight-kicker">Responsive by default</p>
+        <h2>Comfortable on narrow screens</h2>
+        <p>The layout collapses cleanly so the same content works well on tablets and phones.</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</section>
