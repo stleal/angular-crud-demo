@@ -1,17 +1,19 @@
 .properties-container {
-  padding: 24px clamp(16px, 3vw, 40px) 40px;
+  width: min(1120px, calc(100% - clamp(2rem, 8vw, 8rem)));
+  margin: 0 auto;
+  padding: clamp(2.5rem, 5vw, 4.5rem) 0 clamp(3rem, 6vw, 5rem);
 }
 
 .page-title {
   margin: 0 0 24px;
   font-size: clamp(1.75rem, 2.5vw, 2.4rem);
   font-weight: 700;
-  color: #17324d;
+  color: var(--mat-sys-on-surface);
 }
 
 .property-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 20px;
   align-items: stretch;
 }
@@ -22,7 +24,9 @@
   height: 100%;
   overflow: hidden;
   border-radius: 18px;
-  box-shadow: 0 14px 34px rgba(18, 38, 63, 0.12);
+  background: var(--mat-sys-surface-container-lowest);
+  border: 1px solid color-mix(in srgb, var(--mat-sys-outline-variant) 75%, white);
+  box-shadow: none;
 }
 
 .property-image {
@@ -42,18 +46,19 @@
   margin-bottom: 8px;
   font-size: 1.1rem;
   line-height: 1.35;
+  color: var(--mat-sys-on-surface);
 }
 
 .property-price {
   margin: 0 0 10px;
   font-size: 1.15rem;
   font-weight: 700;
-  color: #0f766e;
+  color: var(--mat-sys-primary);
 }
 
 .property-location {
   margin: 0 0 14px;
-  color: #4a5565;
+  color: color-mix(in srgb, var(--mat-sys-on-surface) 78%, white);
   line-height: 1.45;
 }
 
@@ -69,8 +74,8 @@
   align-items: center;
   border-radius: 999px;
   padding: 6px 10px;
-  background: #f3f7fb;
-  color: #29435c;
+  background: color-mix(in srgb, var(--mat-sys-surface-container) 92%, white);
+  color: color-mix(in srgb, var(--mat-sys-on-surface) 82%, white);
   font-size: 0.9rem;
 }
 
@@ -93,24 +98,24 @@
 }
 
 .badge-accent {
-  background-color: #dbeafe;
-  color: #0f3d75;
+  background-color: color-mix(in srgb, var(--mat-sys-secondary-container) 86%, white);
+  color: var(--mat-sys-on-secondary-container);
 }
 
 .badge-primary {
-  background-color: #dff7ef;
-  color: #0c4f43;
+  background-color: color-mix(in srgb, var(--mat-sys-primary) 12%, white);
+  color: var(--mat-sys-primary);
 }
 
 .property-description {
   margin: 0 0 16px;
-  color: #44576d;
+  color: color-mix(in srgb, var(--mat-sys-on-surface) 78%, white);
   line-height: 1.5;
 }
 
 .property-meta {
   margin-top: auto;
-  color: #6b7c8f;
+  color: color-mix(in srgb, var(--mat-sys-on-surface) 68%, white);
 }
 
 .property-actions {
@@ -123,15 +128,9 @@
   place-items: center;
   min-height: 220px;
   border-radius: 18px;
-  background: linear-gradient(135deg, #f6fbff, #edf5fb);
-  color: #29435c;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--mat-sys-primary) 8%, white), var(--mat-sys-surface-container-low));
+  color: var(--mat-sys-on-surface);
   text-align: center;
-}
-
-@media (max-width: 1200px) {
-  .property-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
 }
 
 @media (max-width: 900px) {
@@ -142,7 +141,7 @@
 
 @media (max-width: 640px) {
   .properties-container {
-    padding-inline: 16px;
+    width: min(100%, calc(100% - 1.5rem));
   }
 
   .property-grid {
