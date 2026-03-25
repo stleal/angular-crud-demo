@@ -1,11 +1,11 @@
 <section class="home-shell" aria-labelledby="home-title">
   <div class="hero-grid">
     <div class="hero-copy">
-      <p class="eyebrow">Real estate, presented clearly</p>
-      <h1 id="home-title">Find standout homes without the clutter.</h1>
+      <p class="eyebrow">PropertyHub collections</p>
+      <h1 id="home-title">Featured homes, centered and easier to explore.</h1>
       <p class="hero-text">
-        Browse curated listings, compare property highlights, and move from overview to detail in a cleaner,
-        more readable layout built for desktop and mobile.
+        Your landing page now pulls live property images from the API, keeps the layout centered, and scales its
+        side spacing automatically across desktop, tablet, and mobile widths.
       </p>
 
       <div class="hero-actions">
@@ -16,25 +16,63 @@
 
     <mat-card appearance="outlined" class="hero-card">
       <mat-card-content>
-        <p class="card-label">Why this demo feels better</p>
+        <p class="card-label">What is wired now</p>
         <div class="feature-list">
           <div class="feature-item">
-            <span class="feature-title">Centered layout</span>
-            <span class="feature-copy">A bounded content width keeps reading comfortable on large screens.</span>
+            <span class="feature-title">Live image URLs</span>
+            <span class="feature-copy">Property cards can now render images stored in your API Media folder.</span>
           </div>
           <div class="feature-item">
-            <span class="feature-title">Responsive spacing</span>
-            <span class="feature-copy">Left and right padding scale automatically with viewport width.</span>
+            <span class="feature-title">Responsive framing</span>
+            <span class="feature-copy">The page keeps a centered max width and fluid left-right padding.</span>
           </div>
           <div class="feature-item">
-            <span class="feature-title">Material styling</span>
-            <span class="feature-copy">Buttons and cards inherit the installed red theme pack.</span>
+            <span class="feature-title">Material theme</span>
+            <span class="feature-copy">Cards, actions, and emphasis still inherit the installed rose-red theme.</span>
           </div>
         </div>
       </mat-card-content>
     </mat-card>
   </div>
 
+  @if (hasFeaturedProperties()) {
+  <section class="featured-section" aria-labelledby="featured-title">
+    <div class="section-heading">
+      <p class="insight-kicker">Featured now</p>
+      <h2 id="featured-title">Fresh listings from your database</h2>
+    </div>
+
+    <div class="featured-grid">
+      @for (property of featuredProperties(); track property.id) {
+      <mat-card class="property-card">
+        <img
+          [src]="getPrimaryImageUrl(property)"
+          [alt]="property.title"
+          class="property-image">
+
+        <mat-card-content>
+          <div class="property-header">
+            <p class="property-type">{{ property.propertyType }}</p>
+            <p class="property-status">{{ property.status }}</p>
+          </div>
+
+          <h3>{{ property.title }}</h3>
+          <p class="property-location">{{ property.city }}, {{ property.state }}</p>
+          <p class="property-copy">{{ property.description | slice:0:110 }}...</p>
+
+          <div class="property-meta">
+            <span>{{ property.bedrooms ?? 0 }} bd</span>
+            <span>{{ property.bathrooms ?? 0 }} ba</span>
+            <span>{{ property.squareFootage | number }} sqft</span>
+          </div>
+
+          <p class="property-price">{{ property.price | currency:'USD':'symbol':'1.0-0' }}</p>
+        </mat-card-content>
+      </mat-card>
+      }
+    </div>
+  </section>
+  } @else {
   <div class="insight-grid">
     <mat-card class="insight-card">
       <mat-card-content>
@@ -60,4 +98,5 @@
       </mat-card-content>
     </mat-card>
   </div>
+  }
 </section>
