@@ -1,0 +1,86 @@
+<div class="properties-container">
+  <h2 class="page-title">Available Properties</h2>
+
+  @if (properties$ | async; as properties) {
+    @if (properties.length === 0) {
+    <div class="empty-state">
+      <p>No properties found. Please check your database connection.</p>
+    </div>
+    }
+
+    @if (properties.length > 0) {
+    <div class="property-grid">
+      @for (property of properties.slice(0, 20); track property.id) {
+      <mat-card class="property-card">
+
+        <img
+          [src]="property.propertyImages.find(img => img.isPrimary)?.imageUrl
+                 || property.propertyImages[0]?.imageUrl
+                 || 'https://picsum.photos/id/1015/600/400'"
+          alt="{{ property.title }}"
+          mat-card-image
+          class="property-image">
+
+        <mat-card-content>
+          <mat-card-title class="property-title">{{ property.title }}</mat-card-title>
+          <p class="property-price">
+            {{ property.price | currency:'USD':'symbol':'1.0-0' }}
+          </p>
+
+          <p class="property-location">
+            {{ property.address }}, {{ property.city }}, {{ property.state }} {{ property.zipCode }}
+          </p>
+
+          <div class="property-specs">
+            @if (property.bedrooms) {
+            <span class="spec-item">
+              🛏️ {{ property.bedrooms }} bed
+            </span>
+            }
+            @if (property.bathrooms) {
+            <span class="spec-item">
+              🛁 {{ property.bathrooms }} bath
+            </span>
+            }
+            <span class="spec-item">
+              📐 {{ property.squareFootage | number }} sqft
+            </span>
+            @if (property.yearBuilt) {
+            <span class="spec-item">
+              📅 {{ property.yearBuilt }}
+            </span>
+            }
+          </div>
+
+          <div class="property-badges">
+            <span class="badge badge-accent">{{ property.propertyType }}</span>
+            <span class="badge badge-primary">{{ property.status }}</span>
+          </div>
+
+          <p class="property-description">
+            {{ property.description | slice:0:120 }}...
+          </p>
+
+          <div class="property-meta">
+            <small>Listed: {{ property.dateListed | date:'mediumDate' }}</small>
+            @if (property.updatedAt) {
+            <small> • Updated: {{ property.updatedAt | date:'mediumDate' }}</small>
+            }
+          </div>
+        </mat-card-content>
+
+        <mat-card-actions class="property-actions">
+          <button mat-raised-button color="primary" (click)="viewDetails(property.id)">
+            View Details
+          </button>
+        </mat-card-actions>
+      </mat-card>
+      }
+    </div>
+    }
+  } @else {
+    <div class="loading-state">
+      <p>Loading properties from database...</p>
+    </div>
+  }
+</div>

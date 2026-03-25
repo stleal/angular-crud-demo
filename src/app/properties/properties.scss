@@ -1,0 +1,155 @@
+.properties-container {
+  padding: 24px clamp(16px, 3vw, 40px) 40px;
+}
+
+.page-title {
+  margin: 0 0 24px;
+  font-size: clamp(1.75rem, 2.5vw, 2.4rem);
+  font-weight: 700;
+  color: #17324d;
+}
+
+.property-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  align-items: stretch;
+}
+
+.property-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 18px;
+  box-shadow: 0 14px 34px rgba(18, 38, 63, 0.12);
+}
+
+.property-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.property-card mat-card-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 18px;
+}
+
+.property-title {
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+  line-height: 1.35;
+}
+
+.property-price {
+  margin: 0 0 10px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0f766e;
+}
+
+.property-location {
+  margin: 0 0 14px;
+  color: #4a5565;
+  line-height: 1.45;
+}
+
+.property-specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.spec-item {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 6px 10px;
+  background: #f3f7fb;
+  color: #29435c;
+  font-size: 0.9rem;
+}
+
+.property-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge-accent {
+  background-color: #dbeafe;
+  color: #0f3d75;
+}
+
+.badge-primary {
+  background-color: #dff7ef;
+  color: #0c4f43;
+}
+
+.property-description {
+  margin: 0 0 16px;
+  color: #44576d;
+  line-height: 1.5;
+}
+
+.property-meta {
+  margin-top: auto;
+  color: #6b7c8f;
+}
+
+.property-actions {
+  padding: 0 18px 18px;
+}
+
+.empty-state,
+.loading-state {
+  display: grid;
+  place-items: center;
+  min-height: 220px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #f6fbff, #edf5fb);
+  color: #29435c;
+  text-align: center;
+}
+
+@media (max-width: 1200px) {
+  .property-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .property-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .properties-container {
+    padding-inline: 16px;
+  }
+
+  .property-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .property-image {
+    height: 160px;
+  }
+}
